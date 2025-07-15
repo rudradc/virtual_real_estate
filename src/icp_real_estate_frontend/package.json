@@ -1,0 +1,43 @@
+{
+  "name": "icp_real_estate_frontend",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc && vite build",
+    "format": "prettier --write \"src/**/*.{json,js,jsx,ts,tsx,css,scss}\"",
+    "prebuild": "dfx generate icp_real_estate_backend",
+    "setup": "npm i && dfx canister create icp_real_estate_backend && dfx generate icp_real_estate_backend && dfx deploy",
+    "start": "vite --port 3000",
+    "dev": "vite",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@dfinity/agent": "^2.4.1",
+    "@dfinity/candid": "^2.4.1",
+    "@dfinity/principal": "^2.1.3",
+    "@google/model-viewer": "^4.1.0",
+    "bootstrap": "^5.3.7",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.10.10",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "@vitejs/plugin-react": "^4.0.1",
+    "autoprefixer": "^10.4.21",
+    "cross-fetch": "^3.1.6",
+    "dotenv": "^16.3.1",
+    "jsdom": "^22.1.0",
+    "postcss": "^8.5.6",
+    "sass": "^1.63.6",
+    "tailwindcss": "^4.1.11",
+    "typescript": "^5.8.3",
+    "vite": "^4.5.14",
+    "vite-plugin-environment": "^1.1.3",
+    "vitest": "^2.0.5"
+  }
+}

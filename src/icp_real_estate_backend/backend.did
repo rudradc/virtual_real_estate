@@ -1,0 +1,53 @@
+import principal "mo:base/Principal";
+
+// ✅ Backend response wrapper
+type Result = variant { ok: text; err: text };
+
+// ✅ Property structure
+type Property = record {
+  id: nat64;
+  name: text;
+  owner: principal;
+  price: nat64;
+  is_leased: bool;
+  created_at: nat64;
+};
+
+// ✅ Transaction structure
+type Transaction = record {
+  property_id: nat64;
+  property_name: text;
+  actor: principal;
+  price: nat64;
+  timestamp: nat64;
+  action: text;
+};
+
+// ✅ Inquiry structure (NEW)
+type Inquiry = record {
+  property_id: nat64;
+  from: principal;
+  message: text;
+  timestamp: nat64;
+};
+
+// ✅ Service Interface
+service : {
+  // ➕ Add new property
+  add_property: (text, nat64) -> ();
+
+  // 💰 Buy a property
+  buy_property: (nat64) -> (Result);
+
+  // 🔍 Get all properties
+  get_properties: () -> (vec Property) query;
+
+  // 📜 Get all transactions
+  get_transactions: () -> (vec Transaction) query;
+
+  // 📩 Send a message/inquiry to property owner
+  send_inquiry: (nat64, text) -> ();
+
+  // 📬 Get all inquiries/messages
+  get_inquiries: () -> (vec Inquiry) query;
+};

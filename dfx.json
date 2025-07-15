@@ -1,0 +1,38 @@
+{
+  "canisters": {
+    "icp_real_estate_backend": {
+      "candid": "src/icp_real_estate_backend/icp_real_estate_backend.did",   
+      "package": "icp_real_estate_backend",
+      "type": "rust"
+    },
+    "icp_real_estate_frontend": {
+      "dependencies": [
+        "icp_real_estate_backend"
+      ],
+      "source": [
+        "src/icp_real_estate_frontend/dist"   
+      ],
+      "type": "assets",
+      "workspace": "icp_real_estate_frontend"
+    },
+    "internet_identity": {
+      "candid": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity.did",
+      "frontend": {},
+      "remote": {
+        "id": {
+          "ic": "rdmx6-jaaaa-aaaaa-aaadq-cai"
+        }
+      },
+      "type": "custom",
+      "wasm": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity_dev.wasm.gz"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}

@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "src/icp_real_estate_backend"
+]
+resolver = "2"

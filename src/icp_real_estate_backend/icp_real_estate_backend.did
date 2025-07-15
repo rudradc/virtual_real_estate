@@ -1,0 +1,14 @@
+type Property = record {
+  id: nat64;
+  name: text;
+  owner: principal;
+  price: nat64;
+  is_leased: bool;
+};
+
+service : {
+  greet: (text) -> (text) query;
+  add_property: (text, nat64) -> ();
+  get_properties: () -> (vec Property) query;
+  buy_property: (nat64) -> (variant { Ok: text; Err: text });
+};
